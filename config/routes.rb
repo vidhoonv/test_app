@@ -1,6 +1,6 @@
 TestApp::Application.routes.draw do
+  resources :users
 
-  get "users/new_user"
 
 root :to => "pages#home"
 
