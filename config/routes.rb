@@ -1,5 +1,8 @@
 TestApp::Application.routes.draw do
+  get "sessions/new_session"
+
   resources :users
+  resources :sessions, :only => [:new_session, :create, :destroy]
 
 
 root :to => "pages#home"
@@ -8,6 +11,9 @@ root :to => "pages#home"
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
   match '/signup', :to => 'users#new_user'
+  match '/signin',  :to => 'sessions#new_session'
+  match '/signout', :to => 'sessions#destroy'
+
 
   get "pages/home"
 
