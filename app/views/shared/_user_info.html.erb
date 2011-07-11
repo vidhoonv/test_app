@@ -9,8 +9,9 @@
     </span>
   </a>
 <br/>
+<% if current_user.admin? %>
     <%= image_tag("admin.png", :alt => "Admin", :class => "round") %>
-
+<% end %>
 
 </div>
 

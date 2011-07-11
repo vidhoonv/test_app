@@ -20,8 +20,9 @@
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
 	<strong>Microposts</strong> <%= @user.microposts.count %>
 <br/>
+<% if @user.admin? %>
     <%= image_tag("admin.png", :alt => "Admin", :class => "round") %>
-
+<% end %>
 
     </td>
   </tr>
