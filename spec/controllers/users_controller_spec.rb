@@ -274,6 +274,8 @@ describe "GET 'index'" do
 
     end
   end
+
+ 
   describe "DELETE 'destroy'" do
 
     before(:each) do

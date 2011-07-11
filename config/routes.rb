@@ -3,7 +3,8 @@ TestApp::Application.routes.draw do
 
   resources :users do
 	member do
-		get :following, :followers
+		get :following, :followers, :toggle_admin
+		
 	end
   end
   resources :sessions, :only => [:new_session, :create, :destroy]

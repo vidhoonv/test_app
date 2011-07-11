@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :authenticate, :except => [:show, :new_user, :create]
 
   before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => :destroy
+  before_filter :admin_user,   :only => [ :destroy, :toggle_admin ]
 
 
  def index
@@ -71,6 +71,15 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
+#added extra
+
+  def toggle_admin
+	@user=User.find(params[:id])
+	@user.toggle!(:admin)  
+	redirect_to users_path
+ end
+
+#end of extra
 
   private
 
