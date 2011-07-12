@@ -12,6 +12,8 @@
 <br/>
 <% if current_user.admin? %>
     <%= image_tag("admin.png", :alt => "Admin", :class => "round") %>
+<% else %>
+    <%= image_tag("normal.jpg", :size => "50x50", :alt => "Normal user", :class => "round") %>
 <% end %>
 
 </div>

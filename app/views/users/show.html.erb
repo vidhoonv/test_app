@@ -21,9 +21,11 @@
 	<strong>Microposts</strong> <%= @user.microposts.count %>
 <br/>
 <% if @user.admin? %>
-    <%= image_tag("admin.png", :alt => "Admin", :class => "round") %>
-<% end %>
-
+    <%= image_tag("admin.png", :alt => "Admin user", :class => "round") %>
+<% else %>
+    <%= image_tag("normal.jpg", :size => "50x50", :alt => "Normal user", :class => "round")  %>
+<% end %> <br />
+<%= render 'shared/stats' %>
     </td>
   </tr>
 </table>

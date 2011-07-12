@@ -1,10 +1,11 @@
 <li>
   <%= gravatar_for user, :size => 30 %>
   <%= link_to user.name, user %>
-  <% if current_user.admin? %>
+  <% if current_user.admin? and user!=current_user %>
   | <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
                                 :title => "Delete #{user.name}" %>
-      <% if user.admin? %>
+     
+      <% if user.admin?  %>
  	 | <%= link_to "remove admin privilege", toggle_admin_user_path(user) %>
 	<% else %>
 	 | <%= link_to "give admin privilege", toggle_admin_user_path(user) %>
