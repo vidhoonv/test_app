@@ -76,6 +76,7 @@ class UsersController < ApplicationController
   def toggle_admin
 	@user=User.find(params[:id])
 	@user.toggle!(:admin)  
+	flash[:success]= "Privilege changed."
 	redirect_to users_path
  end
 
