@@ -3,7 +3,9 @@ class PagesController < ApplicationController
 	@title= "Home"
   	if signed_in?
 		@micropost = Micropost.new 
-		@feed_items = current_user.feed.paginate(:page => params[:page])
+		@feed_items = current_user.feed#.paginate(:page => params[:page])
+    #puts @feed_items.respond_to?:"arrange"  # got true as result
+    
 	end
 
   end
@@ -18,4 +20,8 @@ class PagesController < ApplicationController
 def help
 	@title= "Help"
   end
+
+
+
+  
 end

@@ -16,6 +16,7 @@
     <%= link_to "delete", feed_item, :method => :delete,
                                      :confirm => "You sure?",
                                      :title => feed_item.content %>
+    <%= link_to "comment", new_micropost_path(:parent_id => feed_item)  %>
   </td>
   <% end %>
 </tr>

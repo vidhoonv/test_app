@@ -3,8 +3,7 @@ class MicropostsController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def create
-
-	@micropost = current_user.microposts.build(params[:micropost])
+     @micropost = current_user.microposts.build(params[:micropost])
 	if @micropost.save
     	  flash[:success] = "Micropost created!"
     	  redirect_to root_path
@@ -20,6 +19,12 @@ class MicropostsController < ApplicationController
     redirect_back_or root_path
   end
 
+  def new
+  
+    @micropost = Micropost.new(:parent_id => params[:parent_id])
+    @parent_post_id = params[:parent_id]
+    @parent_post = Micropost.find_by_id(@parent_post_id)
+  end
 
   private
 	def authorized_user

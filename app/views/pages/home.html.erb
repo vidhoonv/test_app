@@ -3,8 +3,8 @@
     <tr>
       <td class="main">
         <h1 class="micropost">What's up?</h1>
-        <%= render 'shared/micropost_form' %>
-	<%= render 'shared/feed' %>
+        <%= render 'shared/micropost_form', :parent_id => nil %>
+	
 
       </td>
       <td class="sidebar round">
@@ -13,6 +13,9 @@
       </td>
     </tr>
   </table>
+ <table class="microposts" summary="User microposts">
+<%=   nested_feed @feed_items.arrange(:order => :created_at) %>
+ </table>
 <% else %>
   <h1>Sample App</h1>
 

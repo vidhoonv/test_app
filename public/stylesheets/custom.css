@@ -197,15 +197,27 @@ h1.micropost {
 table.microposts {
   margin-top: 1em;
 }
+div.comment {
+     margin-top: 1em;
+}
 
 table.microposts tr {
   height: 70px;
 }
-
+table.microposts div.comment {
+    height: 70px;
+}
 table.microposts tr td.gravatar {
   border-top: 1px solid #ccc;
   vertical-align: top;
   width: 50px;
+}
+ div.comment  div.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+  float:left;
+  margin-right: 20px;
 }
 
 table.microposts tr td.micropost {
@@ -218,6 +230,16 @@ table.microposts tr td.micropost span.timestamp {
   display: block;
   font-size: 85%;
   color: #666;
+}
+
+ div.comment div.micropost span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+ div.comment div.feed_link {
+    margin-left:200px
 }
 
 div.user_info img {
@@ -244,4 +266,12 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+ .nested_feed {
 
+    margin-left: 30px
+}
+
+.nested_feed .nested_feed .nested_feed .nested_feed .nested_feed .nested_feed  {
+
+    margin-left: 0px
+}

@@ -8,7 +8,7 @@ TestApp::Application.routes.draw do
 	end
   end
   resources :sessions, :only => [:new_session, :create, :destroy]
-  resources :microposts, :only => [:create, :destroy]
+  resources :microposts, :only => [:create, :destroy, :new]
   resources :relationships, :only => [:create, :destroy]
 
 

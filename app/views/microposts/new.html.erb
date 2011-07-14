@@ -1,0 +1,18 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Reply</h1>
+        <table class="microposts" summary="User microposts">
+          <%=  render 'shared/feed_item', :feed_item => @parent_post %>
+        </table>
+
+        <%= render 'shared/micropost_form', :locals => { :micropost => @micropost }  %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+	<%= render 'shared/stats' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
