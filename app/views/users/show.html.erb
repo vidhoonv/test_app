@@ -1,17 +1,18 @@
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
-      <h1>
+      <p><h1 style="border-bottom: 1px solid #ccc;">
         <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+        <%= @user.name %> <br/> <br/> 
+      </h1> 
+      </p>
 	<%= render 'follow_form' if signed_in? %>
 
 	<% unless @user.microposts.empty? %>
-        <table class="microposts" summary="User microposts">
-          <%= render @microposts %>
-        </table>
-        <%= will_paginate @microposts %>
+       
+       <table class="microposts" summary="User microposts">
+          <%=   nested_feed @microposts.arrange(:order => :created_at) %>
+      </table>
       <% end %>
 
     </td>

@@ -12,7 +12,7 @@
 require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :admin
 
 	has_many :microposts, :dependent => :destroy
 	has_many :relationships, :foreign_key => "follower_id",
@@ -65,10 +65,15 @@ class User < ActiveRecord::Base
 	
 	def encrypt_password
 		self.salt=make_salt if new_record?
-		self.encrypted_password = encrypt(password)
-	end
+    puts "caught the culprittttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
+    if !password.nil?
+  		self.encrypted_password = encrypt(password)
+    end
+   end
 
 	def encrypt(string)
+      puts "encypt callllllllllllllllllllllleeeeeeeeeeeeeeeeeeeeeed"
+      puts string.nil?
 		secure_hash("#{salt}--#{string}") #temporary implementation
 	end
 

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :authenticate, :except => [:show, :new_user, :create]
 
   before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => [ :destroy, :toggle_admin ]
+  before_filter :admin_user,   :only => [ :destroy ]
 
 
  def index
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
      @user=User.find(params[:id])
-     @microposts = @user.microposts.paginate(:page => params[:page])
+     @microposts = @user.microposts
      @title=@user.name
   end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
 
   def update
-	
+	puts "am heeeeeeeeeeeerrrrrrrrrrrreeeeeeeeeee"
 	if @user.update_attributes(params[:user])
 		flash[:success]= "Profile updated."
 		redirect_to @user
@@ -74,9 +74,15 @@ class UsersController < ApplicationController
 #added extra
 
   def toggle_admin
-	@user=User.find(params[:id])
-	@user.toggle!(:admin)  
-	flash[:success]= "Privilege changed."
+   puts "am heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeerrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeeeee"
+    if User.find(params[:id]).admin?
+      User.find(params[:id]).update_attribute(:admin,false)
+    else
+      User.find(params[:id]).update_attribute(:admin,true)
+    end
+   	flash[:success]= "Privilege changed."
+ 
+
 	redirect_to users_path
  end
 

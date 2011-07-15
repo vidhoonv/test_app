@@ -17,12 +17,11 @@
 <%=   nested_feed @feed_items.arrange(:order => :created_at) %>
  </table>
 <% else %>
-  <h1>Sample App</h1>
+  <h1 class="text-style">140</h1>
 
   <p>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
+   Say it in <span class="text-style">140</span> letters
+   Try it here by Signing up in just <span class="text-style">1</span> second!
   </p>
 
   <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
