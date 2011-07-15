@@ -1,3 +1,5 @@
+  <%= javascript_include_tag :ckeditor %>
+
 <%= form_for @micropost do |f| %>
 <% puts @micropost.content %>
   <%= render 'shared/error_messages', :object => f.object %>
@@ -6,7 +8,7 @@
      <%= f.hidden_field :parent_id %>
     <%  puts @micropost.parent_id %>
    
-     <%= f.text_area :content %>
+     <%= f.cktext_area :content, :toolobar => 'Easy' %>
 
   </div>
   <div class="actions">
